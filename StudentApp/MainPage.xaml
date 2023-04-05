@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentApp.MainPage">
+
+    <StackLayout>
+
+        <ListView x:Name="studentsList" ItemSelected="OnItemSelectedStudent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Vertical" Margin="0,20">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Id}" FontSize="Medium"/>
+                                    <Label Text="{Binding FIO}" FontSize="Medium" Margin="35,0,35,0"/>
+                                    <Label Text="№ группы:" FontSize="Medium" Margin="0,0,5,0"/>
+                                    <Label Text="{Binding IdGroup}" FontSize="Medium"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Phone}" FontSize="Medium"/>
+                                    <Label Text="{Binding Mail}" FontSize="Medium" Margin="35,0,35,0"/>
+                                    <Label Text="{Binding DateOfBirthday}" FontSize="Medium"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="groupsList" ItemSelected="OnItemSelectedGroup">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Margin="0,20">
+                                <Label Text="{Binding IdGroup}" FontSize="Medium"/>
+                                <Label Text="{Binding Title}" FontSize="Medium" Margin="15,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Добавить студента" Clicked="CreateStudent"/>
+        <Button Text="Добавить группу" Clicked="CreateGroup"/>
+    </StackLayout>
+</ContentPage>
